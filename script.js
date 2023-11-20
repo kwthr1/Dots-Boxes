@@ -79,10 +79,36 @@ function selectLine(e) {
         }
     }
 
-    // for(let i=0; i < 8 ; i++){
-    //     if()
+    // Trying for coloring the boxes
+    // const theLinesHori = this.getElementsByClassName('lines-horizontal');
+    // const theLinesVer = this.getElementsByClassName('lines-vertical');
+    // console.log(theLinesHori)
+    // // console.log(theLinesHori);
+    // for(let i=0; i < theLinesVer.length ; i++){
+    //     // console.log(theLines[i]);
+    //     // for(let j=0 ; j < theLines[i].length ; j++){
+    //     //     if()
+    //     // }
+    //     if((theLinesHori[i][1].getAttribute('src') === 'Img/IMG_0449.PNG' || theLinesHori[i][1].getAttribute('src') === 'Img/IMG_0450.PNG')){
+    //         document.querySelector('.Box1').classList.add('redBox')
+    //     }
+    //     console.log(theLinesHori[i][1])
     // }
 
+    // successful very long way to color the boxes
+    // const line1Src = document.querySelector('.line1').getAttribute('src')
+    // const line7Src = document.querySelector('.line7').getAttribute('src')
+    // const line8Src = document.querySelector('.line8').getAttribute('src')
+    // const line14Src = document.querySelector('.line14').getAttribute('src')
+    // if(line1Src === 'Img/IMG_0449.PNG' || line1Src === 'Img/IMG_0450.PNG'){
+    //     if(line7Src === 'Img/IMG_0454.PNG' || line7Src === 'Img/IMG_0456.PNG'){
+    //         if(line8Src === 'Img/IMG_0454.PNG' || line8Src === 'Img/IMG_0456.PNG'){
+    //             if(line14Src === 'Img/IMG_0449.PNG' || line14Src === 'Img/IMG_0450.PNG'){
+    //                 document.querySelector('.Box1').classList.add('redBox')
+    //             }
+    //         }
+    //     }
+    // }
     
 }
 
