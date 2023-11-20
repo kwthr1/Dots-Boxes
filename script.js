@@ -36,19 +36,53 @@ function selectLine(e) {
     // Targeting the line images and changing them when click
     var clickedImg = e.currentTarget.querySelector('.theLines');
   
+    // Targetting Horixontal lines
     if (clickedImg.getAttribute('src') === 'Img/IMG_0451.PNG') {
       clickedImg.src = 'Img/IMG_0449.PNG';
 
       // Adding a class to the image to make it appear
       clickedImg.classList.add('theLinesClicked')
+
+        // Looping to change player
+        if(currentPlayer == document.querySelector(".player1")){
+            currentPlayer.classList.remove("playerTurn")
+            currentPlayer = document.querySelector(".player2")
+            currentPlayer.classList.add("playerTurn")
+        }else{
+            currentPlayer.classList.remove("playerTurn")
+            currentPlayer = document.querySelector(".player1")
+            currentPlayer.classList.add("playerTurn")
+            clickedImg.src = 'Img/IMG_0450.PNG';
+            clickedImg.classList.add('theLinesClicked')
+        } 
     }
     
+    // Targetting vertical lines
     if (clickedImg.getAttribute('src') === 'Img/IMG_0453.PNG') {
         clickedImg.src = 'Img/IMG_0454.PNG';
   
         // Adding a class to the image to make it appear
         clickedImg.classList.add('theLinesClicked')
-      }
+
+
+        // Looping to change player
+        if(currentPlayer == document.querySelector(".player1")){
+            currentPlayer.classList.remove("playerTurn")
+            currentPlayer = document.querySelector(".player2")
+            currentPlayer.classList.add("playerTurn")
+        }else{
+            currentPlayer.classList.remove("playerTurn")
+            currentPlayer = document.querySelector(".player1")
+            currentPlayer.classList.add("playerTurn")
+            clickedImg.src = 'Img/IMG_0456.PNG';
+            clickedImg.classList.add('theLinesClicked')
+        }
+    }
+
+    // for(let i=0; i < 8 ; i++){
+    //     if()
+    // }
+
     
 }
 
