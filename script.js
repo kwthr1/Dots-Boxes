@@ -3,6 +3,46 @@ let currentPlayer = document.querySelector(".player1")
 
 
 
+// coloring box function
+function colorBoxRed(){
+    // Declaring each line number
+    const line1Src = document.querySelector('.line1').getAttribute('src')
+    const line7Src = document.querySelector('.line7').getAttribute('src')
+    const line8Src = document.querySelector('.line8').getAttribute('src')
+    const line14Src = document.querySelector('.line14').getAttribute('src')
+    // coloring box1
+    if(line1Src === 'Img/IMG_0449.PNG' || line1Src === 'Img/IMG_0450.PNG'){
+        if(line7Src === 'Img/IMG_0454.PNG' || line7Src === 'Img/IMG_0456.PNG'){
+            if(line8Src === 'Img/IMG_0454.PNG' || line8Src === 'Img/IMG_0456.PNG'){
+                if(line14Src === 'Img/IMG_0449.PNG' || line14Src === 'Img/IMG_0450.PNG'){
+                    document.querySelector('.Box1').classList.add('redBox')
+                }
+            }
+        }
+    }
+}
+
+function colorBoxBlue() {
+    // Declaring each line number
+    const line1Src = document.querySelector('.line1').getAttribute('src')
+    const line7Src = document.querySelector('.line7').getAttribute('src')
+    const line8Src = document.querySelector('.line8').getAttribute('src')
+    const line14Src = document.querySelector('.line14').getAttribute('src')
+    // coloring box1
+    if(line1Src === 'Img/IMG_0449.PNG' || line1Src === 'Img/IMG_0450.PNG'){
+        if(line7Src === 'Img/IMG_0454.PNG' || line7Src === 'Img/IMG_0456.PNG'){
+            if(line8Src === 'Img/IMG_0454.PNG' || line8Src === 'Img/IMG_0456.PNG'){
+                if(line14Src === 'Img/IMG_0449.PNG' || line14Src === 'Img/IMG_0450.PNG'){
+                    document.querySelector('.Box1').classList.add('blueBox')
+                    
+                }
+            }
+        }
+    }  
+}
+
+
+
 // strating a new game
 function newGame(){
 
@@ -45,10 +85,12 @@ function selectLine(e) {
 
         // Looping to change player
         if(currentPlayer == document.querySelector(".player1")){
+            colorBoxRed();
             currentPlayer.classList.remove("playerTurn")
             currentPlayer = document.querySelector(".player2")
             currentPlayer.classList.add("playerTurn")
         }else{
+            colorBoxBlue();
             currentPlayer.classList.remove("playerTurn")
             currentPlayer = document.querySelector(".player1")
             currentPlayer.classList.add("playerTurn")
@@ -67,10 +109,12 @@ function selectLine(e) {
 
         // Looping to change player
         if(currentPlayer == document.querySelector(".player1")){
+            colorBoxRed();
             currentPlayer.classList.remove("playerTurn")
             currentPlayer = document.querySelector(".player2")
             currentPlayer.classList.add("playerTurn")
         }else{
+            colorBoxBlue();
             currentPlayer.classList.remove("playerTurn")
             currentPlayer = document.querySelector(".player1")
             currentPlayer.classList.add("playerTurn")
