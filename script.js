@@ -22,53 +22,70 @@ function selectLine(e) {
 
     // Targeting the line images and changing them when click
     var clickedImg = e.currentTarget.querySelector('.theLines');
+
+    // Adding a class to the image (line) to make it appear
+    clickedImg.classList.add('theLinesClicked')
   
     // Targetting Horizontal lines
     if (clickedImg.getAttribute('src') === 'Img/IMG_0451.PNG') {
-      clickedImg.src = 'Img/IMG_0449.PNG';
 
-      // Adding a class to the image to make it appear
-      clickedImg.classList.add('theLinesClicked')
 
         // Looping to change player
+        //player1 turn
         if(currentPlayer == document.querySelector(".player1")){
+            // Changing the lines to red
+            clickedImg.src = 'Img/IMG_0449.PNG';
             colorBoxRed();
+            // Chnaging player from red to blue
             currentPlayer.classList.remove("playerTurnRed")
             currentPlayer = document.querySelector(".player2")
             currentPlayer.classList.add("playerTurnBlue")
+        // player2 turn
         }else{
+            // if(currentPlayer == document.querySelector(".player2"))
+            // Changing the line to be blue during player2 turn
+            clickedImg.src = 'Img/IMG_0450.PNG';
             colorBoxBlue();
+            // changing player from blue to red
             currentPlayer.classList.remove("playerTurnBlue")
             currentPlayer = document.querySelector(".player1")
             currentPlayer.classList.add("playerTurnRed")
-            clickedImg.src = 'Img/IMG_0450.PNG';
-            clickedImg.classList.add('theLinesClicked')
         } 
     }
     
     // Targetting vertical lines
     if (clickedImg.getAttribute('src') === 'Img/IMG_0453.PNG') {
-        clickedImg.src = 'Img/IMG_0454.PNG';
-  
-        // Adding a class to the image to make it appear
-        clickedImg.classList.add('theLinesClicked')
 
 
         // Looping to change player
+        // player1 turn
         if(currentPlayer == document.querySelector(".player1")){
+            // Changing the lines to red
+            clickedImg.src = 'Img/IMG_0454.PNG';
             colorBoxRed();
+            // Chnaging player from red to blue
             currentPlayer.classList.remove("playerTurnRed")
             currentPlayer = document.querySelector(".player2")
-            currentPlayer.classList.add("playerTurnBlue")
+            currentPlayer.classList.add("playerTurnBlue") 
         }else{
+            // if(currentPlayer == document.querySelector(".player2"))
+            // Changing the line to be blue during player2 turn
+            clickedImg.src = 'Img/IMG_0456.PNG';
             colorBoxBlue();
+           // changing player from blue to red
             currentPlayer.classList.remove("playerTurnBlue")
             currentPlayer = document.querySelector(".player1")
-            currentPlayer.classList.add("playerTurnRed")
-            clickedImg.src = 'Img/IMG_0456.PNG';
-            clickedImg.classList.add('theLinesClicked')
+            currentPlayer.classList.add("playerTurnRed")  
         }
     }
+
+    // var allBoxes = document.getElementsByClassName('clearBox')
+
+    
+    //     if(allBoxes[i].classList.contains('redBox') || allBoxes[i].classList.contains('blueBox')){
+    //         theWinner();
+    //     }
+
     
 }
 
@@ -162,7 +179,6 @@ function colorBoxRed(){
     const line83Src = document.querySelector('.line83').getAttribute('src')
     const line84Src = document.querySelector('.line84').getAttribute('src')
 
-    // coloring box1
     if(
         (line1Src === 'Img/IMG_0449.PNG' || line1Src === 'Img/IMG_0450.PNG') && 
         (line7Src === 'Img/IMG_0454.PNG' || line7Src === 'Img/IMG_0456.PNG') && 
@@ -170,12 +186,11 @@ function colorBoxRed(){
         (line14Src === 'Img/IMG_0449.PNG' || line14Src === 'Img/IMG_0450.PNG')
     ){
         const box1 = document.querySelector('.Box1')
-        // box1.classList.remove('blueBox')
-        // box1.classList.add('redBox')
         if (!box1.classList.contains('redBox') && !box1.classList.contains('blueBox')) {
         box1.classList.add('redBox');
         player1Score++
         document.querySelector('.player1Score').innerText = player1Score
+        isBoxColored = true;
         }
         
     }
@@ -192,6 +207,7 @@ function colorBoxRed(){
         box2.classList.add('redBox');
         player1Score++
         document.querySelector('.player1Score').innerText = player1Score
+        isBoxColored = true;
         }
         
     }
@@ -208,6 +224,7 @@ function colorBoxRed(){
         box3.classList.add('redBox');
         player1Score++
         document.querySelector('.player1Score').innerText = player1Score
+        isBoxColored = true;
         }
         
     }
@@ -315,9 +332,9 @@ function colorBoxBlue() {
         // box1.classList.add('blueBox')
         if (!box1.classList.contains('blueBox') && !box1.classList.contains('redBox') ) {
         box1.classList.add('blueBox');
-        
         player2Score++
         document.querySelector('.player2Score').innerText = player2Score
+        isBoxColored = true;
         }
         
     }
@@ -334,6 +351,7 @@ function colorBoxBlue() {
         box2.classList.add('blueBox');
         player2Score++
         document.querySelector('.player2Score').innerText = player2Score
+        isBoxColored = true;
         }
         
     }
@@ -350,10 +368,24 @@ function colorBoxBlue() {
         box3.classList.add('blueBox');
         player2Score++
         document.querySelector('.player2Score').innerText = player2Score
+        isBoxColored = true;
         }
         
     }
 
+}
+
+function theWinner() {
+    if(player1Score > player2Score){
+        document.querySelector('.winning-message').innerHTML = "Player 1 is The Winner!!"
+    }else{
+        if(player1Score < player2Score){
+            document.querySelector('.winning-message').innerHTML = "Player 2 is The Winner!!" 
+        }
+        else{
+            document.querySelector('.winning-message').innerHTML = "It's a Tie!"
+        }
+    }
 }
 
 

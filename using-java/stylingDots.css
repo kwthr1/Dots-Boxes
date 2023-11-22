@@ -1,0 +1,144 @@
+body {
+    font-family: 'Kdam Thmor Pro', sans-serif;
+    margin: 0;
+    background-color: rgba(102, 102, 102, 0.3);
+}
+
+header {
+    background-color: rgb(165, 42, 42);
+}
+
+h1 {
+    text-align: left;
+    margin: 0;
+    color: rgb(37, 43, 97);
+}
+
+.ScoreBar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+.playerScore {
+    padding: 10px;
+    margin: 0 8px;
+}
+
+.player1 {
+    color: rgb(165, 42, 42);
+}
+
+.player2 {
+    color: rgb(74, 85, 187);
+}
+
+.scoreOfPlayer1, .scoreOfPlayer2 {
+    color: black;
+}
+
+.playerTurnRed {
+    border-radius: 10px;
+    background-color: rgba(165, 42, 42,0.3);
+}
+
+.playerTurnBlue {
+    border-radius: 10px;
+    background-color: rgba(74, 85, 187,0.3);
+}
+
+.theBoard {
+    width: 470px;
+    height: 470px;
+    padding: 0 15px;
+    padding-top: 30px;
+    margin: 30px auto;
+    background-color: dimgrey;
+    border-radius: 20px;
+}
+
+.horizontalLine {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.verticalLine {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.theDot {
+    width: 20px;
+    height: 20px;
+}
+
+.lineH {
+    width: 50px;
+    height: 10px;
+    background-color: rgb(158, 153, 153);
+    border-radius: 20px;
+    margin: 5px 0;
+    /* opacity: 0; */
+}
+
+.lineV {
+    width: 10px;
+    height: 50px;
+    background-color: rgb(158, 153, 153);
+    border-radius: 20px;
+    margin: 0 5px;
+    /* opacity: 0; */
+}
+
+.lineOpacity {
+    opacity: 0;
+}
+
+.lineOpacity:hover {
+    opacity: 1;
+}
+
+.clickedLine {
+    opacity: 1;
+}
+
+.redLine {
+    background-color: brown;
+}
+
+.blueLine {
+    background-color: rgb(74, 85, 187);
+}
+
+.box {
+    width: 50px;
+    height: 50px;
+}
+
+
+
+
+
+.newGameBar {
+    display: flex;
+    justify-content: flex-start;
+}
+
+
+.NGbtn {
+    display: inline-block;
+    background-color: brown;
+    color: rgb(37, 43, 97);
+    padding: 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    margin: 10px;
+}
+
+.NGbtn:hover {
+    color: brown;
+    background-color: rgb(37, 43, 97);
+}
