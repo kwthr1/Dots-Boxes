@@ -48,6 +48,11 @@ h1 {
     background-color: rgba(74, 85, 187,0.3);
 }
 
+.winnerMessage {
+    text-align: center;
+    font-size: 30px;
+}
+
 .theBoard {
     width: 470px;
     height: 470px;
@@ -113,11 +118,24 @@ h1 {
     background-color: rgb(74, 85, 187);
 }
 
+.disabled {
+    pointer-events: none;
+}
+
 .box {
     width: 50px;
     height: 50px;
 }
 
+.redBox {
+    background-color: brown;
+    border-radius: 10px;
+}
+
+.blueBox {
+    background-color: rgb(74, 85, 187);
+    border-radius: 10px;
+}
 
 
 

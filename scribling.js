@@ -134,3 +134,56 @@ document.querySelectorAll(".containingBox a").forEach(function(square){
 document.querySelector('#DBnewGame').addEventListener('click',newGame);
 
 newGame();
+
+
+
+
+
+
+
+// this is not for this code 
+// for(i=0 ; i < line ;i++){
+//     board += "<div class='horizontalLine'><img class='theDot' src='img/IMG_0445.PNG' alt='A Dot'>"
+//     for(j=0 ; j < line ; j++){
+//         board += "<a href='#' class='lineClick lineOpacity'><div class='line lineH box"+ i +"" + j +" box"+ [i+1] + "" + j +"'  data-row='"+[i]+"' data-column='"+[j]+"' ></div></a>" // last modified
+//         board += "<img class='theDot' src='img/IMG_0445.PNG' alt='A Dot'>"
+//     }
+//     board += "</div>"
+//     board += "<div class='verticalLine'><a href='#' class='lineClick lineOpacity'><div class='line lineV box"+[i+1]+""+0+"' data-column='"+[i]+"'></div></a>"
+//     for(j=0 ; j < line ; j++){
+//         board += "<div class='box'></div>"
+//         board += "<a href='#' class='lineClick lineOpacity'><div class='line lineV box"+[i+1]+""+j+" box"+ [i+1] + "" + [j+1] +"' data-row='"+[j]+"' data-column='"+[i]+"'></div></a>"
+//     }
+//     board += "</div>"
+// }
+
+// board += "<div class='horizontalLine'><img class='theDot' src='img/IMG_0445.PNG' alt='A Dot'>"
+// for(let i=0 ; i < line ; i++){
+//     board += "<a href='#' class='lineClick lineOpacity'><div class='line lineH box"+6+""+i+"' data-row='"+[i]+"'></div></a>"
+//     board += "<img class='theDot' src='img/IMG_0445.PNG' alt='A Dot'>"
+// }
+// board += "</div>"
+
+
+
+
+
+
+
+// let clickedLines = 0; // Variable to keep track of the number of clicked lines
+
+// function colorBoxLineClicked() {
+//     const colorBoxLines = document.querySelectorAll('.line');
+//     clickedLines++;
+
+//     if (clickedLines === line) { // Check if all lines have been clicked
+//         for (let i = 1; i <= line; i++) {
+//             for (let j = 0; j < line; j++) {
+//                 if ((colorBoxLines[j].classList.contains('redLine') || colorBoxLines[j].classList.contains('blueLine')) &&
+//                     (colorBoxLines[j].classList.contains(`box${i}${j}`))) {
+//                     document.querySelector(`.theBox${i}${j}`).classList.add('redBox');
+//                 }
+//             }
+//         }
+//     }
+// }
