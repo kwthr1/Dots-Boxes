@@ -13,37 +13,11 @@ function newGame(){
     currentPlayer.classList.add("playerTurnRed")
 }
 
-function colorBoxRed(){
-    colorBoxLine = document.querySelectorAll('.line')
-        for(let i=1; i<line+1;i++){
-            for(let j=0; j<line; j++){
-                if((colorBoxLine[j].classList.contains('redLine')|| colorBoxLine[j].classList.contains('blueLine')) &&
-                    (colorBoxLine[j].classList.contains(`box${i}${j}`)) &&
-                    (!document.querySelector(`.theBox${i}${j}`).classList.contains('blueBox'))){
-                        document.querySelector(`.theBox${i}${j}`).classList.add('redBox')
-                    }
-            }
-        }
-
-        // if(document.querySelectorAll(`box${i}${j}`).classList.contains('blueLine')||document.querSelectorAll(`box${i}${j}`).classList.contains('redLine')){
-            // document.querySelector(`.theBox${i}${j}`).classList.add('redBox')
-        // }
-}
-
-function colorBoxBlue() {
-    colorBoxLine = document.querySelectorAll('.line')
-        for(let i=1; i<line+1;i++){
-            for(let j=0; j<line; j++){
-                if((colorBoxLine[j].classList.contains('redLine')|| colorBoxLine[j].classList.contains('blueLine')) &&
-                    (colorBoxLine[j].classList.contains(`box${i}${j}`)) &&
-                    (!document.querySelector(`.theBox${i}${j}`).classList.contains('redBox'))){
-                        document.querySelector(`.theBox${i}${j}`).classList.add('blueBox')
-                    }
-            }
-        }
-}
 
 function closeBox(theClasses,playerColor) {
+    
+    CompeletedBoxes = 0;
+
     theClasses.forEach(function(value){
         // console.log(value)
         if(value.startsWith("box")){
@@ -62,12 +36,14 @@ function closeBox(theClasses,playerColor) {
 
                 if(fillBox == true){
                     document.querySelector("."+theBox).classList.add(playerColor+"Box")
+                    CompeletedBoxes++
                 }
 
             }
 
         }
     })
+    return CompeletedBoxes
 }
 
 function selectLine(e){
@@ -86,36 +62,48 @@ function selectLine(e){
         theColoredClick.classList.add('redLine')
         // colorBoxRed();
         closeBox(theColoredClick.classList,"red");
-        
-        
+        player1Score = document.querySelectorAll('.redBox').length
+        document.querySelector('.scoreOfPlayer1').innerText = player1Score
+        // console.log(CompeletedBoxes)
+        if(CompeletedBoxes === 0){
+            currentPlayer.classList.remove('playerTurnRed')
+            currentPlayer = document.querySelector(".player2")
+            currentPlayer.classList.add("playerTurnBlue")
+        }else{
+            return currentPlayer
+        }
         // disabling the clicked lines
         clickedLine.classList.add('disabled');
         clickedLine.removeEventListener('click', selectLine);
         // Changing the player from player1 to player2
-        currentPlayer.classList.remove('playerTurnRed')
-        currentPlayer = document.querySelector(".player2")
-        currentPlayer.classList.add("playerTurnBlue")
+        // currentPlayer.classList.remove('playerTurnRed')
+        // currentPlayer = document.querySelector(".player2")
+        // currentPlayer.classList.add("playerTurnBlue")
     
     // Coloring the line blue during player2 turn
     }else if(currentPlayer == document.querySelector(".player2")){
         theColoredClick.classList.add('blueLine')
         // colorBoxBlue();
         closeBox(theColoredClick.classList,"blue");
+        player2Score = document.querySelectorAll('.blueBox').length
+        document.querySelector('.scoreOfPlayer2').innerText = player2Score
+        // console.log(CompeletedBoxes)
+        if(CompeletedBoxes === 0){
+            currentPlayer.classList.remove('playerTurnBlue')
+            currentPlayer = document.querySelector(".player1")
+            currentPlayer.classList.add('playerTurnRed')
+        }else{
+            return currentPlayer
+        }
         // disabling the clicked lines
         clickedLine.classList.add('disabled');
         clickedLine.removeEventListener('click', selectLine);
         // Changing the player back to player1
-        currentPlayer.classList.remove('playerTurnBlue')
-        currentPlayer = document.querySelector(".player1")
-        currentPlayer.classList.add('playerTurnRed')
+        // currentPlayer.classList.remove('playerTurnBlue')
+        // currentPlayer = document.querySelector(".player1")
+        // currentPlayer.classList.add('playerTurnRed')
     }
 
-    player1Score = document.querySelectorAll('.redBox').length
-    document.querySelector('.scoreOfPlayer1').innerText = player1Score
-    player2Score = document.querySelectorAll('.blueBox').length
-    document.querySelector('.scoreOfPlayer2').innerText = player2Score
-
-    // console.log(player1Score+player2Score)
 
     if(player1Score+player2Score==36){
         console.log(player1Score+player2Score)
