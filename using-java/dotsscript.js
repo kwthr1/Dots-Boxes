@@ -7,10 +7,11 @@ let player2Score = 0;
 
 // Start a new functioin
 function newGame(){
+    
     // Set player to be player1
-
     currentPlayer = document.querySelector(".player1")
     currentPlayer.classList.add("playerTurnRed")
+
 }
 
 
@@ -19,13 +20,10 @@ function closeBox(theClasses,playerColor) {
     CompeletedBoxes = 0;
 
     theClasses.forEach(function(value){
-        // console.log(value)
         if(value.startsWith("box")){
 
             // build the name of the box
             let theBox = value.replace("box" , "theBox")
-            // console.log(theBox)
-            // console.log(document.querySelector("."+theBox))
             if(document.querySelector("."+theBox) && !document.querySelector("."+theBox).classList.contains('redBox') && !document.querySelector("."+theBox).classList.contains('blueBox')){
                 let fillBox = true;
                 document.querySelectorAll('.'+value).forEach(function(lineB){
@@ -35,7 +33,12 @@ function closeBox(theClasses,playerColor) {
                 })
 
                 if(fillBox == true){
+                    let clickSound = document.querySelector('.clickSound')
+                    let boxSound = document.querySelector('.boxSound')
+                    clickSound.pause();
                     document.querySelector("."+theBox).classList.add(playerColor+"Box")
+                    boxSound.currentTime = 0;
+                    boxSound.play();
                     CompeletedBoxes++
                 }
 
@@ -53,74 +56,97 @@ function selectLine(e){
     // Targeting the lines to click them
     var clickedLine = e.currentTarget
 
-    let clickToColor = 0
-
+    // making the lines appear when clicked
     clickedLine.classList.add('clickedLine')
+
+    // targeting the lines to color them
     theColoredClick = clickedLine.querySelector('.line')
-    // Coloring the line red during player1 trun
+
+    let clickSound = document.querySelector('.clickSound')
+    clickSound.currentTime = 0.2;
+    clickSound.play();
+
+    // during player1 turn
     if(currentPlayer == document.querySelector(".player1")){
+
+        // color the line red
         theColoredClick.classList.add('redLine')
-        // colorBoxRed();
+
+        // checking if the player compeleted a box
         closeBox(theColoredClick.classList,"red");
+
+        // adding to the score
         player1Score = document.querySelectorAll('.redBox').length
         document.querySelector('.scoreOfPlayer1').innerText = player1Score
-        // console.log(CompeletedBoxes)
+
+        // checking for a possible winner
+        displayWinner();
+
         if(CompeletedBoxes === 0){
+            // if the player did not copelete a box change the player
             currentPlayer.classList.remove('playerTurnRed')
             currentPlayer = document.querySelector(".player2")
             currentPlayer.classList.add("playerTurnBlue")
         }else{
+            // if the player compeleted a box return the current player and disable clicked line
+            clickedLine.classList.add('disabled');
             return currentPlayer
         }
+
         // disabling the clicked lines
         clickedLine.classList.add('disabled');
-        clickedLine.removeEventListener('click', selectLine);
-        // Changing the player from player1 to player2
-        // currentPlayer.classList.remove('playerTurnRed')
-        // currentPlayer = document.querySelector(".player2")
-        // currentPlayer.classList.add("playerTurnBlue")
-    
-    // Coloring the line blue during player2 turn
+        
+
+    // during player 2 turn
     }else if(currentPlayer == document.querySelector(".player2")){
+
+        // color the line blue
         theColoredClick.classList.add('blueLine')
-        // colorBoxBlue();
+
+        // checking if the player compeleted a box
         closeBox(theColoredClick.classList,"blue");
+
+        // adding to the score
         player2Score = document.querySelectorAll('.blueBox').length
         document.querySelector('.scoreOfPlayer2').innerText = player2Score
-        // console.log(CompeletedBoxes)
+
+        // checking for a possible winner
+        displayWinner();
+
         if(CompeletedBoxes === 0){
+            // if the player did not copelete a box change the player
             currentPlayer.classList.remove('playerTurnBlue')
             currentPlayer = document.querySelector(".player1")
             currentPlayer.classList.add('playerTurnRed')
         }else{
+            // if the player compeleted a box return the current player and disable clicked line
+            clickedLine.classList.add('disabled');
             return currentPlayer
         }
+
         // disabling the clicked lines
         clickedLine.classList.add('disabled');
-        clickedLine.removeEventListener('click', selectLine);
-        // Changing the player back to player1
-        // currentPlayer.classList.remove('playerTurnBlue')
-        // currentPlayer = document.querySelector(".player1")
-        // currentPlayer.classList.add('playerTurnRed')
     }
 
+    
 
-    if(player1Score+player2Score==36){
-        console.log(player1Score+player2Score)
-    }
+}
 
+// The winner function 
+function displayWinner(){
+    let winningSound = document.querySelector('.winningSound')
+    winningSound.currentTime = 0;
     if(player1Score+player2Score==36){
         if(player1Score>player2Score){
-            document.querySelector('.winnerMessage').innerHTML = "Player 1 Wins!"
+            document.querySelector('.winnerMessage').innerHTML = "<img class='trophy' src='Img/IMG_0481.PNG' alt='Trophy'>" + "Player 1 Wins!" + "<img class='trophy' src='Img/IMG_0481.PNG' alt='Trophy'>"
+            winningSound.play();
         }else if(player1Score<player2Score){
-            document.querySelector('.winnerMessage').innerHTML = "Player 2 Wins!"
+            document.querySelector('.winnerMessage').innerHTML = "<img class='trophy' src='Img/IMG_0481.PNG' alt='Trophy'>" + "Player 2 Wins!" + "<img class='trophy' src='Img/IMG_0481.PNG' alt='Trophy'>"
+            winningSound.play();
         }else{
             document.querySelector('.winnerMessage').innerHTML = "It's a Tie!"
         }
     }
-    
-
-
 }
 
 // a function to draw our board of dots, lines, and boxes
@@ -152,11 +178,21 @@ function drawLines() {
 
     document.querySelector(".theBoard").innerHTML = board;
 
+    // let clickSound = document.querySelector('.clickSound')
+
     // Adding an event listener to selecting the line function
     document.querySelectorAll(".lineClick").forEach(function(lineElement){
         lineElement.addEventListener('click',selectLine)
     });
     
+    // document .querySelectorAll('.lineClick').forEach(function(lineElement) {
+    //     lineElement.addEventListener('click', function() 
+    //     {
+    //         let clickSound = document.querySelector('.clickSound')
+    //         clickSound.currentTime = 0;
+    //         clickSound.play();
+    //     })
+    // })
 
 }
 
@@ -168,6 +204,15 @@ function drawLines() {
 
 document.addEventListener('DOMContentLoaded', function() {
     drawLines();
+});
+
+// document.querySelector('#newGame').addEventListener('click',newGame);
+
+
+const newGameButton = document.querySelector('#newGame');
+
+newGameButton.addEventListener('click', function() {
+  location.reload();
 });
 
 newGame();
