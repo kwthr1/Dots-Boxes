@@ -5,6 +5,7 @@ let player1Score = 0;
 let player2Score = 0;
 
 
+
 // Start a new functioin
 function newGame(){
     
@@ -14,9 +15,10 @@ function newGame(){
 
 }
 
-
+// function to close boxes
 function closeBox(theClasses,playerColor) {
     
+    // setting compeleted boxes to 0
     CompeletedBoxes = 0;
 
     theClasses.forEach(function(value){
@@ -24,21 +26,27 @@ function closeBox(theClasses,playerColor) {
 
             // build the name of the box
             let theBox = value.replace("box" , "theBox")
+
+            // checking to see if the box has already been filled
             if(document.querySelector("."+theBox) && !document.querySelector("."+theBox).classList.contains('redBox') && !document.querySelector("."+theBox).classList.contains('blueBox')){
                 let fillBox = true;
+                // don't color the box if not all line have been clicked
                 document.querySelectorAll('.'+value).forEach(function(lineB){
                     if(!lineB.classList.contains('redLine') && !lineB.classList.contains('blueLine')){
                         fillBox = false;
                     }
                 })
 
+                // if all lines have been clicked fill box
                 if(fillBox == true){
                     let clickSound = document.querySelector('.clickSound')
                     let boxSound = document.querySelector('.boxSound')
                     clickSound.pause();
+                    // Add color to the box according to the current player
                     document.querySelector("."+theBox).classList.add(playerColor+"Box")
                     boxSound.currentTime = 0;
                     boxSound.play();
+                    // adding one to compeleted boxes to add to the score
                     CompeletedBoxes++
                 }
 
@@ -136,7 +144,7 @@ function selectLine(e){
 function displayWinner(){
     let winningSound = document.querySelector('.winningSound')
     winningSound.currentTime = 0;
-    if(player1Score+player2Score==36){
+    if(player1Score+player2Score==(line*line)){
         if(player1Score>player2Score){
             document.querySelector('.winnerMessage').innerHTML = "<img class='trophy' src='Img/IMG_0481.PNG' alt='Trophy'>" + "Player 1 Wins!" + "<img class='trophy' src='Img/IMG_0481.PNG' alt='Trophy'>"
             winningSound.play();
@@ -184,15 +192,7 @@ function drawLines() {
     document.querySelectorAll(".lineClick").forEach(function(lineElement){
         lineElement.addEventListener('click',selectLine)
     });
-    
-    // document .querySelectorAll('.lineClick').forEach(function(lineElement) {
-    //     lineElement.addEventListener('click', function() 
-    //     {
-    //         let clickSound = document.querySelector('.clickSound')
-    //         clickSound.currentTime = 0;
-    //         clickSound.play();
-    //     })
-    // })
+
 
 }
 
@@ -206,13 +206,13 @@ document.addEventListener('DOMContentLoaded', function() {
     drawLines();
 });
 
-// document.querySelector('#newGame').addEventListener('click',newGame);
+document.querySelector('#newGame').addEventListener('click',newGame);
 
 
-const newGameButton = document.querySelector('#newGame');
+let newGameButton = document.querySelector('#newGame');
 
 newGameButton.addEventListener('click', function() {
-  location.reload();
+    location.reload();
 });
 
 newGame();
