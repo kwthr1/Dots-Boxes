@@ -18,6 +18,7 @@ This project is done after compeleting unit 1.
 - It starts with empty dotted-grid and it will be filled with lines and boxes by the players.
 - Player 1 is always the one that starts first by default.
 - The players takes turn to connect the dots by either vertical or horizontal lines.
+- A box is filled once a player compelets all the lines around it.
 - The player that compelets a box earns a point and he gets a bonus turn.
 - The game ends once all boxes have been filled and the player with the highest score wins.
 - If two players has the same score it is a tie.
