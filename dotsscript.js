@@ -163,10 +163,10 @@ function drawLines() {
     let board = ""
 
     for(i=0 ; i < line ;i++){
-        board += "<div class='horizontalLine'><img class='theDot' src='img/IMG_0445.PNG' alt='A Dot'>"
+        board += "<div class='horizontalLine'><img class='theDot' src='Img/IMG_0445.PNG' alt='A Dot'>"
         for(j=0 ; j < line ; j++){
             board += "<a href='#' class='lineClick lineOpacity'><div class='line lineH box"+ i +"" + j +" box"+ [i+1] + "" + j +"'></div></a>"
-            board += "<img class='theDot' src='img/IMG_0445.PNG' alt='A Dot'>"
+            board += "<img class='theDot' src='Img/IMG_0445.PNG' alt='A Dot'>"
         }
         board += "</div>"
         board += "<div class='verticalLine'><a href='#' class='lineClick lineOpacity'><div class='line lineV box"+[i+1]+""+0+"'></div></a>"
@@ -177,10 +177,10 @@ function drawLines() {
         board += "</div>"
     }
 
-    board += "<div class='horizontalLine'><img class='theDot' src='img/IMG_0445.PNG' alt='A Dot'>"
+    board += "<div class='horizontalLine'><img class='theDot' src='Img/IMG_0445.PNG' alt='A Dot'>"
     for(let i=0 ; i < line ; i++){
         board += "<a href='#' class='lineClick lineOpacity'><div class='line lineH box"+6+""+i+"'></div></a>"
-        board += "<img class='theDot' src='img/IMG_0445.PNG' alt='A Dot'>"
+        board += "<img class='theDot' src='Img/IMG_0445.PNG' alt='A Dot'>"
     }
     board += "</div>"
 
