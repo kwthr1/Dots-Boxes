@@ -1,0 +1,212 @@
+body {
+    font-family: 'Kdam Thmor Pro', sans-serif;
+    margin: 0;
+    background-color: rgba(102, 102, 102, 0.3);
+}
+
+header {
+    background-color: rgb(165, 42, 42);
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+h1 {
+    text-align: left;
+    margin: 0;
+    color: rgb(37, 43, 97);
+}
+
+.ScoreBar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+.playerScore {
+    padding: 10px;
+    margin: 0 8px;
+}
+
+.player1 {
+    color: rgb(165, 42, 42);
+}
+
+.player2 {
+    color: rgb(74, 85, 187);
+}
+
+.scoreOfPlayer1, .scoreOfPlayer2 {
+    color: black;
+}
+
+.playerTurnRed {
+    border-radius: 10px;
+    background-color: rgba(165, 42, 42,0.3);
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px, rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.playerTurnBlue {
+    border-radius: 10px;
+    background-color: rgba(74, 85, 187,0.3);
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px, rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.winnerMessage {
+    text-align: center;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: rgba(137, 120, 65, 0.4)5px 5px, rgba(137, 120, 65, 0.3) 10px 10px, rgba(137, 120, 65, 0.2) 15px 15px, rgba(137, 120, 65, 0.1) 20px 20px, rgba(137, 120, 65, 0.05) 25px 25px;
+}
+
+.trophy {
+    width: 70px;
+}
+
+.theBoard {
+    width: 470px;
+    height: 470px;
+    padding: 0 15px;
+    padding-top: 30px;
+    margin: 30px auto;
+    background-color: rgba(105, 105, 105, 0.412);
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px, rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.horizontalLine {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.verticalLine {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.theDot {
+    width: 20px;
+    height: 20px;
+}
+
+.lineH {
+    width: 50px;
+    height: 10px;
+    background-color: rgb(158, 153, 153);
+    border-radius: 20px;
+    margin: 5px 0;
+    /* opacity: 0; */
+}
+
+.lineV {
+    width: 10px;
+    height: 50px;
+    background-color: rgb(158, 153, 153);
+    border-radius: 20px;
+    margin: 0 5px;
+    /* opacity: 0; */
+}
+
+.lineOpacity {
+    opacity: 0;
+}
+
+.lineOpacity:hover {
+    opacity: 1;
+}
+
+.clickedLine {
+    opacity: 1;
+}
+
+.redLine {
+    background-color: brown;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px, rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.blueLine {
+    background-color: rgb(74, 85, 187);
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px, rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.disabled {
+    pointer-events: none;
+}
+
+.box {
+    width: 50px;
+    height: 50px;
+}
+
+.redBox {
+    background-color: rgba(165, 42, 42, 0.306);
+    border-radius: 10px;
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset; */
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px, rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset; */
+}
+
+.blueBox {
+    background-color: rgba(105, 113, 181, 0.559);
+    border-radius: 10px;
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset; */
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px, rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+
+
+
+.newGameBar {
+    display: flex;
+    justify-content: flex-start;
+}
+
+
+.NGbtn {
+    display: inline-block;
+    background-color: brown;
+    color: rgb(37, 43, 97);
+    padding: 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    margin: 10px;
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+.NGbtn:hover {
+    color: brown;
+    background-color: rgb(37, 43, 97);
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+@media screen and (max-width:676px) {
+    .theBoard {
+        width: 300px;
+        height: 300px;
+        padding-bottom: 30px;
+        padding-top: 15px;
+    }
+
+    .theDot {
+        width: 15px;
+        height: 15px;
+    }
+
+    .lineH {
+        width: 32.5px;
+        height: 7.5px;
+    }
+
+    .lineV {
+        height: 32.5px;
+        width: 7.5px;
+    }
+
+    .box {
+        width: 32.5px;
+        height: 32.5px;
+    }
+}
