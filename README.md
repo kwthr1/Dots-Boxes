@@ -4,7 +4,7 @@ _Dots and Boxes unit 1 Game Project_
 ## About the Project
 This project is done by a student for General Assebly's Software Engineering Immersive course
 
-This project is done after compeleting unit 1.
+This project is done after compeleting unit 1, using HTML, CSS, and JavaScript
 
 ### Project Requirements
 1. *Must be a two player game*
